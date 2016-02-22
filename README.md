@@ -7,6 +7,8 @@ There already is similar app in the AskNao program but the voice is pretty linea
 
 The project is not very complicated technically, it is just a lot of work to make every sentences sound as we want it to.
 
+More info on [Aldebaran Community](https://community.aldebaran.com/en/content/tell-me-story "Aldebaran Community")
+
 ## Install notes
 ### The Python way
 First change the IP adress in the code to the one given by your robot.
