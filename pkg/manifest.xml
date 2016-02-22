@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<package version="0.1.1" uuid="levieuxgrand-pre-0f865e">
+ <names>
+  <name lang="en_US">Le vieux grand-père</name>
+  <name lang="fr_FR">Le vieux grand-père</name>
+ </names>
+ <supportedLanguages>
+  <language>fr_FR</language>
+ </supportedLanguages>
+ <descriptionLanguages>
+  <language>fr_FR</language>
+ </descriptionLanguages>
+ <contents>
+  <behaviorContent path="Le vieux grand-père">
+   <nature>interactive</nature>
+   <permissions/>
+  </behaviorContent>
+ </contents>
+ <requirements>
+  <naoqiRequirement/>
+  <robotRequirement model="NAO"/>
+ </requirements>
+</package>
