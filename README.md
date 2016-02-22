@@ -18,5 +18,8 @@ THen run the the python script in /src/ by running the following commands in you
 ### Using Choregraphe
 Simply load the project located in /pkg/.
 
-##Changelog
+## Changelog
 __0.0.0 First version__
+
+## License
+[MIT](https://github.com/TH3Mjuss/Nao-Tell-me-a-story/blob/master/README.md)
