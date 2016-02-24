@@ -21,7 +21,10 @@ THen run the the python script in /src/ by running the following commands in you
 Simply load the project located in /pkg/.
 
 ## Changelog
-__0.0.0 First version__
+__0.0.1__
+Added gestures, slowed the speech
+__0.0.0__
+First Version
 
 ## License
 [MIT](LICENSE.md  "MIT")
