@@ -9,8 +9,10 @@ from naoqi import ALProxy
 """
 
 IP = "XXX.XXX.XX.XX" #Your IP here
-atts = ALProxy("ALAnimatedSpeech", IP, 9559)
-motion = ALProxy("ALMotion", IP, 9559)
+PORT = 9559
+atts = ALProxy("ALAnimatedSpeech", IP, PORT)
+motion = ALProxy("ALMotion", IP, PORT)
+proxyPosture = ALProxy("ALRobotPosture", IP, )
 motion.wakeUp()
 configuration = {"bodyLanguageMode":"contextual"}
 atts.say("Bonjour, je vais te raconter l'histoire du vieux grand-père.\\pau=1500\\")
@@ -31,5 +33,10 @@ atts.say("\\rspd=90\\Quelques jours après,\\pau=200\\ son fils et sa belle-fill
         "à papa et \\rspd=85\\maman quand ils seront vieux.\\vct=100\\ \\pau=800\\", configuration)
 atts.say("\\rspd=90\\Le mari et la femme se regardère un instant sans rien dire,\\pau=200\\ puis ils se mirent à pleurer, \\pau=200\\ reprirent le "\
         "vieux grand-père à table,\\pau=200\\ et désormais le firent toujours manger à table avec eux,\\pau=200\\ sans plus jamais le rudoyer.", configuration)
+posture = proxyPosture.getPostureFamily()
+if posture == "Standing":
+        proxyPosture.goToPosture("Stand")
+else:
+        proxyPosture.goToPosture("Sit")
 motion.rest()
 print("done \n")

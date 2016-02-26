@@ -15,7 +15,7 @@
             <BehaviorLayer name="behavior_layer1">
                 <BehaviorKeyframe name="keyframe1" index="1">
                     <Diagram>
-                        <Box name="Le vieux grand-père - l&apos;histoire" id="1" localization="8" tooltip="" x="321" y="132">
+                        <Box name="Le vieux grand-père - l&apos;histoire" id="1" localization="8" tooltip="" x="497" y="194">
                             <bitmap>media/images/box/box-python-script.png</bitmap>
                             <script language="4">
                                 <content>
@@ -35,6 +35,7 @@
         #self.onStopped() #activate the output of the box
         atts = ALProxy("ALAnimatedSpeech")
         motion = ALProxy("ALMotion")
+        proxyPosture = ALProxy("ALRobotPosture")
         motion.wakeUp()
         configuration = {"bodyLanguageMode":"contextual"}
         atts.say("Bonjour, je vais te raconter l'histoire du vieux grand-père.\\pau=1500\\")
@@ -55,8 +56,15 @@
         "à papa et \\rspd=85\\maman quand ils seront vieux.\\vct=100\\ \\pau=800\\", configuration)
         atts.say("\\rspd=90\\Le mari et la femme se regardère un instant sans rien dire,\\pau=200\\ puis ils se mirent à pleurer, \\pau=200\\ reprirent le "\
         "vieux grand-père à table,\\pau=200\\ et désormais le firent toujours manger à table avec eux,\\pau=200\\ sans plus jamais le rudoyer.", configuration)
+
+        posture = proxyPosture.getPostureFamily()
+        if posture == "Standing":
+            proxyPosture.goToPosture("Stand")
+        else:
+            proxyPosture.goToPosture("Sit")
         motion.rest()
         print("done \n")
+
         pass
 
     def onInput_onStop(self):
