@@ -35,8 +35,8 @@ atts.say("\\rspd=90\\Le mari et la femme se regardère un instant sans rien dire
         "vieux grand-père à table,\\pau=200\\ et désormais le firent toujours manger à table avec eux,\\pau=200\\ sans plus jamais le rudoyer.", configuration)
 posture = proxyPosture.getPostureFamily()
 if posture == "Standing":
-        proxyPosture.goToPosture("Stand")
+        proxyPosture.goToPosture("Stand", 0.5)
 else:
-        proxyPosture.goToPosture("Sit")
+        proxyPosture.goToPosture("Sit", 0.5)
 motion.rest()
 print("done \n")
