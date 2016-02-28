@@ -12,10 +12,10 @@ More info on [Aldebaran Community](https://community.aldebaran.com/en/content/te
 ## Install notes
 ### The Python way
 First change the IP adress in the code to the one given by your robot.
-Then run the the python script in /src/ by running the following commands in your terminal: 
+Then run the the python script in /src/ by running the following commands in your terminal:
 
     chmod +x Le\ vieux\ grand-père.py
-    ./Le\ vieux\ grand-père.py
+    ./Le\ vieux\ grand-père.py --ip XXX.XXX.XXX.XXX --port XXXX
 
 ### Using Choregraphe
 Simply load the project located in /pkg/.
