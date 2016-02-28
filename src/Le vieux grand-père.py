@@ -1,4 +1,6 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
+
 from naoqi import ALProxy
 import argparse
 
@@ -8,7 +10,8 @@ import argparse
 \rspd=xxx\   --> voice speed 50 to 400% (default 100%)
 \vol=xxx\    --> manage volume 1to 100%
 """
-def main (IP, PORT=9559):
+def main(IP, PORT=9559):
+    
     # Declare the proxies we will be using
     atts = ALProxy("ALAnimatedSpeech", IP, PORT)
     motion = ALProxy("ALMotion", IP, PORT)
