@@ -8,7 +8,7 @@ This project follows the [Semantic Versioning](http://semver.org/ "Semantic Vers
   - A new story "Le papillion haut dans le ciel" is here !
   - An interactive menu lets you choose the story you want to hear.
   - Changed the architecture of the project.
-- Changed the Python script name (the same features as the Choregraphe project will be here soon.)
+- Changed the [Python script](src/ "Python script") name (the same features as the Choregraphe project will be here soon.)
 
 ## 1.2.1
 - Shebang !
