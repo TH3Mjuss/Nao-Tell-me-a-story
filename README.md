@@ -1,4 +1,4 @@
-# Nao - Tell me a story [![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg)]() 
+# Nao - Tell me a story [![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg)]() [![Version] (https://img.shields.io/badge/Version-2.0.0-green.svg)]()
 > Nao app "Tell me a story".
 
 I am trying to make Nao tell a story like a parent would do to its child. The main goal of the project is to make the voice of NAO feel like natural through the tone of his voice.
@@ -20,13 +20,7 @@ Simply load the project located in /pkg/.
 
 ## Changelog
 
-**0.0.1**
-
-Added gestures, slowed the speech
-
-**0.0.0**
-
-First Version
+[Changelog is available here](CHANGELOG.md "Changelog")
 
 ## License
 [MIT](LICENSE.md  "MIT")
