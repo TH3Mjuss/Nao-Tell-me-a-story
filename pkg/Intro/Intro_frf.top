@@ -1,0 +1,8 @@
+topic: ~Intro()
+language: frf
+
+concept:(slt) ^rand[Bonjour Salut Nao Hey "Bonjour Nao"]
+
+u:(~slt) Veux-tu que je te raconte une histoire ? Je peux te raconter le Papillion haut dans le ciel. Je connais aussi l'histoire du vieux grand-père.
+u:(["Raconte moi le papillion haut dans le ciel" "Je veux écouter le papillion haut dans le ciel" "Raconte moi la première histoire" "Raconte moi la première histoire" "Je veux écouter la première histoire" "Le papillion haut dans le ciel" "Raconte nous le papillion haut dans le ciel" "Nous voulons écouter le papillion haut dans le ciel" "Raconte nous l'histoire du papillion haut dans le ciel"]) Très bien, je vais te raconter l'histoire du papillion haut dans le ciel $papillon=1
+u:(["Raconte moi le vieux grand-père" "Je veux écouter le vieux grand-père" "Raconte moi l'histoire du vieux grand-père" "Raconte nous le vieux grand-père" "Nous voulons écouter le vieux grand-père" "Raconte nous l'histoire du vieux grand-père" "Le vieux grand-père" "Raconte moi la deuxième histoire" "Raconte nous la deuxième histoire"]) Très bien, je vais te raconter l'histoire du vieux grand-père $GP=1

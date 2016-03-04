@@ -1,23 +1,18 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<package version="0.1.1" uuid="levieuxgrand-pre-0f865e">
+<package uuid="tellmeastory-3ac379">
  <names>
-  <name lang="en_US">Le vieux grand-père</name>
-  <name lang="fr_FR">Le vieux grand-père</name>
+  <name lang="en_US">Tell me a story</name>
  </names>
  <supportedLanguages>
-  <language>fr_FR</language>
+  <language>en_US</language>
  </supportedLanguages>
  <descriptionLanguages>
-  <language>fr_FR</language>
+  <language>en_US</language>
  </descriptionLanguages>
  <contents>
-  <behaviorContent path="Conte">
+  <behaviorContent path="behavior_1">
    <nature>interactive</nature>
    <permissions/>
   </behaviorContent>
  </contents>
- <requirements>
-  <naoqiRequirement/>
-  <robotRequirement model="NAO"/>
- </requirements>
 </package>

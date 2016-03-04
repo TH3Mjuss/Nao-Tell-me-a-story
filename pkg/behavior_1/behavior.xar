@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ChoregrapheProject xmlns="http://www.aldebaran-robotics.com/schema/choregraphe/project.xsd" xar_version="3">
+    <Box name="root" id="-1" localization="8" tooltip="Root box of Choregraphe&apos;s behavior. Highest level possible." x="0" y="0">
+        <bitmap>media/images/box/root.png</bitmap>
+        <script language="4">
+            <content>
+                <![CDATA[]]>
+</content>
+        </script>
+        <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+        <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+        <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+        <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+        <Timeline enable="0">
+            <BehaviorLayer name="behavior_layer1">
+                <BehaviorKeyframe name="keyframe1" index="1">
+                    <Diagram>
+                        <Box name="Le vieux grand-père - l&apos;histoire" id="1" localization="8" tooltip="" x="842" y="71">
+                            <bitmap>media/images/box/box-python-script.png</bitmap>
+                            <script language="4">
+                                <content>
+                                    <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onLoad(self):
+        #put initialization code here
+        pass
+
+    def onUnload(self):
+        #put clean-up code here
+        pass
+
+    def onInput_onStart(self):
+        #self.onStopped() #activate the output of the box
+        atts = ALProxy("ALAnimatedSpeech")
+        motion = ALProxy("ALMotion")
+        proxyPosture = ALProxy("ALRobotPosture")
+        dialog = ALProxy("ALDialog")
+
+        topic = dialog.getActivatedTopics()
+        dialog.deactivateTopic(topic[0])
+
+        motion.wakeUp()
+        configuration = {"bodyLanguageMode":"contextual"}
+        atts.say("\\rspd=90\\Il était une fois un pauvre homme bien vieux, \\pau=200\\qui avait les yeux trouble, \\pau=200\\"\
+        "l’oreille dure et les genoux tremblants. \\pau=600\\Quand il était à table,\\pau=200\\ il pouvait à peine tenir "\
+        "sa cui yère ;\\pau=450\\ il reaipandait de la soupe sur la nappe,\\pau=200\\ et quelquefois mème en laissait échapper "\
+        "de sa bouche.\\pau=600\\ La femme de son fils,\\pau=200\\ et son fils lui-mème en avaient pris un grand \\rspd=85\\daigoût, \\pau=200\\"\
+        "\\rspd=100\\et à la fin ils le reléguaire dans un coin derrière le poil, \\pau=200\\ où ils lui donnaient à manger une "\
+        "chaitive pitance dans une vieille écuelle de terre.\\pau=600\\ Le vieillard avaient souvent les larmes aux yeux,\\pau=200\\ "\
+        "et regardait tristement du coter de la table...\\pau=800\\", configuration)
+        atts.say("\\rspd=90\\Un jour, \\pau=200\\ l'écuelle,\\pau=200\\ que tenaient mal ses mains tremblantes,\\pau=200\\ tomba À terre et se brisa."\
+        "\\pau=600\\La jeune femme s'emporta en reproches:\\pau=400\\ il n'osa rien répondre et baissa la tête en soupirant.\\pau=600\\"\
+        "On lui \\rspd=90\\acheuta \\rspd=100\\ pour deux liards une écuelle de bois dans laquelle désormais on lui donnait à manger."\
+        "\\pau=800\\", configuration)
+        atts.say("\\rspd=90\\Quelques jours après,\\pau=200\\ son fils et sa belle-fille virent leur enfant qui avait quatre ans,\\pau=200\\ occupé \\pau=120\\"\
+        "à assembler par terre de petites planchettes.\\pau=600\\ \\rspd=95\\ \\vct=70\\Que fais-tu là ?\\vct=100\\ \\rspd=100\\ Demanda "\
+        "son père.\\pau=600\\ \\vct=150\\C'est un auget, \\pau=200\\ \\vct=100\\ répondit l'enfant,\\pau=200\\ \\vct=150\\pour donner à manger "\
+        "à papa et \\rspd=85\\maman quand ils seront vieux.\\vct=100\\ \\pau=800\\", configuration)
+        atts.say("\\rspd=90\\Le mari et la femme se regardère un instant sans rien dire,\\pau=200\\ puis ils se mirent à pleurer, \\pau=200\\ reprirent le "\
+        "vieux grand-père à table,\\pau=200\\ et désormais le firent toujours manger à table avec eux,\\pau=200\\ sans plus jamais le rudoyer.", configuration)
+
+        posture = proxyPosture.getPostureFamily()
+        if posture == "Standing":
+            proxyPosture.goToPosture("Stand", 0.5)
+        else:
+            proxyPosture.goToPosture("Sit", 0.5)
+        motion.rest()
+
+        pass
+
+    def onInput_onStop(self):
+        self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
+        self.onStopped() #activate the output of the box]]>
+</content>
+                            </script>
+                            <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+                            <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+                            <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+                            <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+                        </Box>
+                        <Box name="Le Rayon-de-soleil et du Papillon-haut-dans-le-ciel" id="3" localization="8" tooltip="" x="848" y="233">
+                            <bitmap>media/images/box/box-python-script.png</bitmap>
+                            <script language="4">
+                                <content>
+                                    <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onLoad(self):
+        #put initialization code here
+        pass
+
+    def onUnload(self):
+        #put clean-up code here
+        pass
+
+    def onInput_onStart(self):
+        #self.onStopped() #activate the output of the box
+        atts = ALProxy("ALAnimatedSpeech")
+        motion = ALProxy("ALMotion")
+        proxyPosture = ALProxy("ALRobotPosture")
+        dialog = ALProxy("ALDialog")
+
+        topic = dialog.getActivatedTopics()
+        dialog.deactivateTopic(topic[0])
+
+        motion.wakeUp()
+        configuration = {"bodyLanguageMode":"contextual"}
+        atts.say("\\rspd=90\\ Il était une fois,\\pau=200\\dans la douceur et le parfait épanouissement dain"\
+        "été de juillet,\\pau=200\\ un papillon voletant au gré du vent,\\pau=200\\ sous "\
+        "le regard complice du soleil.\\pau=1000\\")
+
+        atts.say("\\rspd=90\\Il volait haut dans le ciel,\\pau=200\\ plus haut que n'importe quel autre "\
+        "papillon.\\pau=600\\  Il voulait voir ce qui se cachait par delà les "\
+        "nuages.\\pau=600\\  Sa grâce éthérée et ses chatoyantes attirèrent l'attention "\
+        "d'un Rayon-de-soleil.\\pau=600\\  Ébloui par la danse aérienne de ce petit "\
+        "insecte éphémère,\\pau=200\\ mais si plein de vie,\\pau=200\\ le timide rayon "\
+        "en tomba profondément amoureux.\\pau=600\\  Ne sachant comment lui exprimer "\
+        "l'ardeur de ses sentiments,\\pau=200\\ il se mit à briller plus fort.\\pau=600\\"\
+        "Il baigna de lumière le papillon qui volait,\\pau=200\\ volait haut dans le "\
+        "ciel,\\pau=200\\ pour atteindre les nuages.\\pau=600\\  Il l'illumina de toute "\
+        "sa tendresse,\\pau=200\\ l'éclaira de sa passion.\\pau=1000\\")
+
+        atts.say("\\rspd=90\\Le Rayon-de-soleil n'avait d'yeux que pour le "\
+        "Papillon-haut-dans-le-ciel.\\pau=600\\  Il lui envoyait chaque jour davantage "\
+        "de lueur et de chaleur,\\pau=200\\ en hommage à ses ailes enchanteresses et à "\
+        "la beauté de sa danse.\\pau=600\\  Il scintilla et flamboya tant et si "\
+        "bien,\\pau=200\\ que sa flamme en devint insupportable.\\pau=600\\  Aveuglé par "\
+        "son amour,\\pau=200\\ le Rayon-de-soleil ne se rendit pas compte qu'il brûlait "\
+        "les ailes du Papillon-haut-dans-le-ciel.\\pau=600\\  Celui-ci,\\pau=200\\ "\
+        "blessé,\\pau=200\\ ne put poursuivre son vol.\\pau=600\\"\
+        "Il tomba.\\pau=1000\\")
+
+        atts.say("\\rspd=90\\Dans sa chute,\\pau=200\\ il vit les nuages s'éloigner,\\pau=200\\ et son cœur "\
+        "se brisa de chagrin devant ce rêve, \\pau=200\\ qu'il n'atteindrait jamais.\\pau=600\\  Il "\
+        "allait s'écraser au sol quand le vent,\\pau=200\\ le prenant en pitié,\\pau=200\\ "\
+        "se mit à souffler et le déposa en douceur dans l'herbeu verte.\\pau=1000\\")
+        atts.say("\\rspd=90\\Lorsqu'il vit le papi yon qu'il aimait tant tomber,\\pau=200\\ les ailes en "\
+        "feu,\\pau=200\\ le Rayon-de-soleil hurla de peur et de chagrin.\\pau=600\\  Et "\
+        "quand il réalisa que,\\pau=200\\ par sa faute,\\pau=200\\ il ne volerait plus "\
+        "jamais,\\pau=200\\ le rayon se cacha derrière les nuages.\\pau=600\\ Ivre de "\
+        "douleur et de culpabilité,\\pau=200\\ il pleura.\\pau=600\\"\
+        "Il pleura longtemps.\\pau=600\\")
+
+        atts.say("\\rspd=90\\Quand enfin ses larmes se tarirent,\\pau=200\\ il sortit de sa cachette "\
+        "vaporeuse.\\pau=600\\  Sa première pensée fut de trouver le papillon,\\pau=200\\ "\
+        "pour lui demander pardon.\\pau=600\\  Mais lorsqu'il regarda vers la "\
+        "Terre,\\pau=200\\ le Rayon-de-soleil découvrit que le "\
+        "Papillon-haut-dans-le-ciel,\\pau=200\\ qui avait fait battre son cœur,\\pau=200\\ "\
+        "avait disparu.\\pau=600\\"\
+        "Il partit à sa recherche.\\pau=600\\ "\
+        "Il ne le retrouva jamais.\\pau=1000\\")
+
+
+        atts.say("\\rspd=90\\En son absence,\\pau=200\\ l'hiver arriva.\\pau=600\\  Le monde sombra sous la "\
+        "\\rspd=80\\torpeur\\rspd=90\\ du froid.\\pau=600\\  Puis,\\pau=200\\ un jour,\\pau=200\\ résigné \\pau=100\\ et le "\
+        "cœur gros,\\pau=200\\ le Rayon-de-soleil reprit sa place dans le ciel.\\pau=600\\ "\
+        "L'aité reuvaint et réveilla la vie trop longtemps endormie.\\pau=600\\  L'herbe "\
+        "redevient verte,\\pau=200\\ les fleurs ouvrirent leurs corolles et les insectes "\
+        "bourdonnèrent dans les airs.\\pau=600\\  Et,\\pau=200\\ parmi eux,\\pau=200\\ de "\
+        "petits papillons \\pau=100\\ volant de fleurs en fleurs.\\pau=600\\  Parfois,\\pau=200\\ ils "\
+        "volaient haut dans le ciel,\\pau=200\\ pour voir ce qui se cachait derrière les nuages.\\pau=1000\\")
+
+        atts.say("\\rspd=90\\À leur vue,\\pau=200\\ le Rayon-de-soleil versa des larmes de joie.\\pau=600\\ "\
+        "Il retrouvait un peu de celui qu'il avait tant aimé dans les couleurs "\
+        "chatoyantes,\\pau=200\\ et les battements d'ailes gracieux.\\pau=600\\  Désireux "\
+        "d'expier sa faute,\\pau=200\\ il se fit un devoir de les protéger,\\pau=200\\ pour "\
+        "que leurs courtes vies ne connaissent jamais que la douceur et la volupté.\\pau=600\\"\
+        "Les papillons reconnurent en lui un ami.\\pau=600\\  Ils ne se montrèrent plus "\
+        "que s'il était présent pour veiller sur eux.\\pau=1000\\")
+
+        atts.say("\\rspd=90\\Depuis ce jour,\\pau=200\\ le Rayon-de-soleil berce d'une lumière suave et légère "\
+        "le vol des papillons,\\pau=200\\ en souvenir de celui qui cherchait à voir au-delà "\
+        "des nuages.\\pau=600\\  Et sa seule présence suffit à les attirer dans les airs et "\
+        "à les faire danser haut,\\pau=200\\ très haut dans le ciel.")
+        posture = proxyPosture.getPostureFamily()
+        if posture == "Standing":
+            proxyPosture.goToPosture("Stand", 0.5)
+        else:
+            proxyPosture.goToPosture("Sit",0.5)
+        motion.rest()
+
+        print("done")
+        pass
+
+    def onInput_onStop(self):
+        self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
+        self.onStopped() #activate the output of the box]]>
+</content>
+                            </script>
+                            <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+                            <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+                            <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+                            <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+                        </Box>
+                        <Box name="Wait" id="6" localization="8" tooltip="Wait a moment before sending a signal on the output. &#x0A;Can be stopped anytime. &#x0A;Stimulating the input again before output is activated restarts the waiting period.&#x0A;" x="580" y="86">
+                            <bitmap>media/images/box/wait.png</bitmap>
+                            <script language="4">
+                                <content>
+                                    <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        self.waiting = None
+
+    def onUnload(self):
+        self.cancelWaiting()
+
+    def triggerOutput(self):
+        self.timerOutput()
+
+    def cancelWaiting(self):
+        if self.waiting:
+            self.waiting.cancel()
+        self.waiting = None
+
+    def onInput_onStart(self):
+        self.cancelWaiting()
+        import qi
+        self.waiting = qi.async(self.triggerOutput, delay=int(self.getParameter("Timeout (s)") * 1000 * 1000))
+
+    def onInput_onStop(self):
+        if self.getParameter("Trigger timerOutput if cancelled") and self.waiting and self.waiting.isRunning():
+            self.timerOutput()
+        self.onUnload()]]>
+</content>
+                            </script>
+                            <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+                            <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Start the Wait box with the configured timeout value." id="2" />
+                            <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Stop the wait and stimulate the output." id="3" />
+                            <Output name="timerOutput" type="1" type_size="1" nature="1" inner="0" tooltip="Send a bang once time set in parameters is elapsed, or if the box is stopped and the appropriate parameter is set." id="4" />
+                            <Parameter name="Timeout (s)" inherits_from_parent="0" content_type="2" value="3" default_value="1" min="0" max="5000" tooltip="Duration the box waits before stimulating the output." id="5" />
+                            <Parameter name="Trigger timerOutput if cancelled" inherits_from_parent="0" content_type="0" value="0" default_value="1" tooltip="If the box is currently waiting and cancelled, output will be stimulated." id="6" />
+                        </Box>
+                        <Box name="Wait (1)" id="4" localization="8" tooltip="Wait a moment before sending a signal on the output. &#x0A;Can be stopped anytime. &#x0A;Stimulating the input again before output is activated restarts the waiting period.&#x0A;" x="583" y="252">
+                            <bitmap>media/images/box/wait.png</bitmap>
+                            <script language="4">
+                                <content>
+                                    <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        self.waiting = None
+
+    def onUnload(self):
+        self.cancelWaiting()
+
+    def triggerOutput(self):
+        self.timerOutput()
+
+    def cancelWaiting(self):
+        if self.waiting:
+            self.waiting.cancel()
+        self.waiting = None
+
+    def onInput_onStart(self):
+        self.cancelWaiting()
+        import qi
+        self.waiting = qi.async(self.triggerOutput, delay=int(self.getParameter("Timeout (s)") * 1000 * 1000))
+
+    def onInput_onStop(self):
+        if self.getParameter("Trigger timerOutput if cancelled") and self.waiting and self.waiting.isRunning():
+            self.timerOutput()
+        self.onUnload()]]>
+</content>
+                            </script>
+                            <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+                            <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Start the Wait box with the configured timeout value." id="2" />
+                            <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Stop the wait and stimulate the output." id="3" />
+                            <Output name="timerOutput" type="1" type_size="1" nature="1" inner="0" tooltip="Send a bang once time set in parameters is elapsed, or if the box is stopped and the appropriate parameter is set." id="4" />
+                            <Parameter name="Timeout (s)" inherits_from_parent="0" content_type="2" value="3" default_value="1" min="0" max="5000" tooltip="Duration the box waits before stimulating the output." id="5" />
+                            <Parameter name="Trigger timerOutput if cancelled" inherits_from_parent="0" content_type="0" value="0" default_value="1" tooltip="If the box is currently waiting and cancelled, output will be stimulated." id="6" />
+                        </Box>
+                        <Box name="Say" id="5" localization="8" tooltip="Say some text. Note that you must open the box to enter the text." x="152" y="133">
+                            <bitmap>media/images/box/interaction/say.png</bitmap>
+                            <script language="4">
+                                <content>
+                                    <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        self.bIsRunning = False
+
+    def onUnload(self):
+        self.bIsRunning = False
+
+    def onInput_onStart(self):
+        self.bIsRunning = True
+
+    def onInput_onStop(self):
+        if( self.bIsRunning ):
+            self.onUnload()
+            self.onStopped()]]>
+</content>
+                            </script>
+                            <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when Diagram is loaded." id="1" />
+                            <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this Input." id="2" />
+                            <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this Input." id="3" />
+                            <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished or stopped." id="4" />
+                            <Parameter name="Voice shaping (%)" inherits_from_parent="0" content_type="1" value="100" default_value="100" min="50" max="150" tooltip='Used to modify at runtime the voice feature (tone, speed). In a slighty&#x0A;different way than pitch and speed, it gives a kind of &quot;gender or age&#x0A;modification&quot; effect.&#x0A;&#x0A;For instance, a quite good male derivation of female voice can be&#x0A;obtained setting this parameter to 78%.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the&#x0A;speed parameter. For example, if you want to decrease by 20% the voice&#x0A;shaping, you will have to increase by 20% the speed to keep a constant&#x0A;average speed.&#x0A;&#x0A;!Warning! This feature is not available yet in Japanese, Chinese and Korean.' id="5" />
+                            <Parameter name="Speed (%)" inherits_from_parent="0" content_type="1" value="100" default_value="100" min="50" max="200" tooltip="Changes the speed of the voice.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the voice&#x0A;shaping parameter. For example, if you want to increase by 20% the speed, you&#x0A;will have to decrease by 20% the voice shaping to keep a constant average&#x0A;speed.&#x0A;&#x0A;!Warning! This feature is not available yet in Japanese, Chinese and Korean." id="6" />
+                            <Timeline enable="0">
+                                <BehaviorLayer name="behavior_layer1">
+                                    <BehaviorKeyframe name="keyframe1" index="1">
+                                        <Diagram>
+                                            <Box name="Say Text" id="2" localization="8" tooltip="Say the text received on its input." x="422" y="65">
+                                                <bitmap>media/images/box/interaction/say.png</bitmap>
+                                                <script language="4">
+                                                    <content>
+                                                        <![CDATA[import time
+
+class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+        self.tts = ALProxy('ALTextToSpeech')
+        self.ttsStop = ALProxy('ALTextToSpeech', True) #Create another proxy as wait is blocking if audioout is remote
+
+    def onLoad(self):
+        self.bIsRunning = False
+        self.ids = []
+
+    def onUnload(self):
+        for id in self.ids:
+            try:
+                self.ttsStop.stop(id)
+            except:
+                pass
+        while( self.bIsRunning ):
+            time.sleep( 0.2 )
+
+    def onInput_onStart(self, p):
+        self.bIsRunning = True
+        try:
+            sentence = "\RSPD="+ str( self.getParameter("Speed (%)") ) + "\ "
+            sentence += "\VCT="+ str( self.getParameter("Voice shaping (%)") ) + "\ "
+            sentence += str(p)
+            sentence +=  "\RST\ "
+            id = self.tts.post.say(str(sentence))
+            self.ids.append(id)
+            self.tts.wait(id, 0)
+        finally:
+            try:
+                self.ids.remove(id)
+            except:
+                pass
+            if( self.ids == [] ):
+                self.onStopped() # activate output of the box
+                self.bIsRunning = False
+
+    def onInput_onStop(self):
+        self.onUnload()]]>
+</content>
+                                                </script>
+                                                <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when Diagram is loaded." id="1" />
+                                                <Input name="onStart" type="3" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this Input." id="2" />
+                                                <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this Input." id="3" />
+                                                <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when Box behavior is finished." id="4" />
+                                                <Parameter name="Voice shaping (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="150" tooltip='Used to modify at runtime the voice feature (tone, speed). In a slighty&#x0A;different way than pitch and speed, it gives a kind of &quot;gender or age&#x0A;modification&quot; effect.&#x0A;&#x0A;For instance, a quite good male derivation of female voice can be&#x0A;obtained setting this parameter to 78%.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the&#x0A;speed parameter. For example, if you want to decrease by 20% the voice&#x0A;shaping, you will have to increase by 20% the speed to keep a constant&#x0A;average speed.' id="5" />
+                                                <Parameter name="Speed (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="200" tooltip="Changes the speed of the voice.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the voice&#x0A;shaping parameter. For example, if you want to increase by 20% the speed, you&#x0A;will have to decrease by 20% the voice shaping to keep a constant average&#x0A;speed." id="6" />
+                                            </Box>
+                                            <Box name="Localized Text" id="5" localization="8" tooltip="Send on the output the text associated with the robot&apos;s current voice language.&#x0A;You can display and edit the text associated with any language by&#x0A;selecting the language in the combobox.&#x0A;&#x0A;!!Warning!! The text sent on the output is NOT the displayed one but the one&#x0A;associated with the robot&apos;s current voice language." plugin="localizationbox_plugin" x="114" y="68">
+                                                <bitmap>media/images/box/interaction/vocabulary.png</bitmap>
+                                                <script language="4">
+                                                    <content>
+                                                        <![CDATA[# /!\ Generated content. Do not edit!
+class MyClass(GeneratedClass):
+	def __init__(self):
+		try: # disable autoBind
+			GeneratedClass.__init__(self, False)
+		except TypeError: # if NAOqi < 1.14
+			GeneratedClass.__init__( self )
+
+		self.tts = ALProxy("ALTextToSpeech")
+		self.sentences = {
+			"Arabic" : "  ",
+			"Czech" : " Ahoj ",
+			"Danish" : " Hej ",
+			"German" : " Hallo ",
+			"Greek" : "  ",
+			"English" : " Hello ",
+			"Spanish" : " Hola ",
+			"Finnish" : " Hei ",
+			"French" : " Bonjour ",
+			"Italian" : " Ciao ",
+			"Japanese" : " こんにちは ",
+			"Korean" : " 안녕하세요 ",
+			"Dutch" : " Hallo ",
+			"Norwegian" : "  ",
+			"Polish" : " Cześć ",
+			"Brazilian" : " Olá ",
+			"Portuguese" : " Olá ",
+			"Russian" : " Привет ",
+			"Swedish" : " Hallå ",
+			"Turkish" : " Merhaba ",
+			"Chinese" : "  "
+		}
+
+	def onInput_onStart(self):
+		sDefaultLang = self.tts.getLanguage()
+		self.onStopped(self.sentences[sDefaultLang])]]>
+</content>
+                                                </script>
+                                                <pluginContent>
+                                                    <arabic>
+                                                        <![CDATA[]]>
+</arabic>
+                                                    <czech>
+                                                        <![CDATA[Ahoj]]>
+</czech>
+                                                    <danish>
+                                                        <![CDATA[Hej]]>
+</danish>
+                                                    <german>
+                                                        <![CDATA[Hallo]]>
+</german>
+                                                    <greek>
+                                                        <![CDATA[]]>
+</greek>
+                                                    <english>
+                                                        <![CDATA[Hello]]>
+</english>
+                                                    <spanish>
+                                                        <![CDATA[Hola]]>
+</spanish>
+                                                    <finnish>
+                                                        <![CDATA[Hei]]>
+</finnish>
+                                                    <french>
+                                                        <![CDATA[Bonjour]]>
+</french>
+                                                    <italian>
+                                                        <![CDATA[Ciao]]>
+</italian>
+                                                    <japanese>
+                                                        <![CDATA[こんにちは]]>
+</japanese>
+                                                    <korean>
+                                                        <![CDATA[안녕하세요]]>
+</korean>
+                                                    <dutch>
+                                                        <![CDATA[Hallo]]>
+</dutch>
+                                                    <norwegian>
+                                                        <![CDATA[]]>
+</norwegian>
+                                                    <polish>
+                                                        <![CDATA[Cześć]]>
+</polish>
+                                                    <brazilian>
+                                                        <![CDATA[Olá]]>
+</brazilian>
+                                                    <portuguese>
+                                                        <![CDATA[Olá]]>
+</portuguese>
+                                                    <russian>
+                                                        <![CDATA[Привет]]>
+</russian>
+                                                    <swedish>
+                                                        <![CDATA[Hallå]]>
+</swedish>
+                                                    <turkish>
+                                                        <![CDATA[Merhaba]]>
+</turkish>
+                                                    <chinese>
+                                                        <![CDATA[]]>
+</chinese>
+                                                    <language>9</language>
+                                                </pluginContent>
+                                                <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+                                                <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Data is sent on the output when this input is stimulated." id="2" />
+                                                <Output name="onStopped" type="3" type_size="1" nature="1" inner="0" tooltip="Data sent when asked." id="3" />
+                                            </Box>
+                                            <Link inputowner="0" indexofinput="4" outputowner="2" indexofoutput="4" />
+                                            <Link inputowner="5" indexofinput="2" outputowner="0" indexofoutput="2" />
+                                            <Link inputowner="2" indexofinput="2" outputowner="5" indexofoutput="3" />
+                                        </Diagram>
+                                    </BehaviorKeyframe>
+                                </BehaviorLayer>
+                            </Timeline>
+                            <Resource name="Speech" type="Lock" timeout="0" />
+                        </Box>
+                        <Box name="Intro" id="2" localization="8" tooltip="" x="359" y="119">
+                            <dialogFile>../Intro/Intro.dlg</dialogFile>
+                            <bitmap>media/images/box/box-dialog.png</bitmap>
+                            <script language="4">
+                                <content>
+                                    <![CDATA[]]>
+</content>
+                            </script>
+                            <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+                            <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+                            <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+                            <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+                            <Output name="GP" type="1" type_size="1" nature="2" inner="0" tooltip="" id="5" />
+                            <Output name="papillion" type="1" type_size="1" nature="2" inner="0" tooltip="" id="6" />
+                        </Box>
+                        <Link inputowner="1" indexofinput="2" outputowner="6" indexofoutput="4" />
+                        <Link inputowner="3" indexofinput="2" outputowner="4" indexofoutput="4" />
+                        <Link inputowner="5" indexofinput="2" outputowner="0" indexofoutput="2" />
+                        <Link inputowner="0" indexofinput="4" outputowner="1" indexofoutput="4" />
+                        <Link inputowner="0" indexofinput="4" outputowner="3" indexofoutput="4" />
+                        <Link inputowner="6" indexofinput="2" outputowner="2" indexofoutput="5" />
+                        <Link inputowner="4" indexofinput="2" outputowner="2" indexofoutput="6" />
+                        <Link inputowner="2" indexofinput="2" outputowner="5" indexofoutput="4" />
+                    </Diagram>
+                </BehaviorKeyframe>
+            </BehaviorLayer>
+        </Timeline>
+    </Box>
+</ChoregrapheProject>
